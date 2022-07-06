@@ -97,12 +97,16 @@ button('check'+id,'remove'+id,'edit'+id);
 
 
 	function editList(id) {
-	var tinput = document.createElement('input');
-	tinput.value=_('title'+id).textContent;
-	tinput.id="etitle"+id;
-	tinput.type="text";
-	tinput.setAttribute("style","border: none;border-bottom: 2px solid;background-color: #040a2b;color:#ffffff;width: 95%;font-size:20px;");
-	_('title'+id).parentNode.appendChild(tinput);
+//	var tinput = document.createElement('input');
+//	tinput.value=_('title'+id).textContent;
+//	tinput.id="etitle"+id;
+//	tinput.type="text";
+//	tinput.setAttribute("style","border: none;border-bottom: 2px solid;background-color: #040a2b;color:#ffffff;width: 95%;font-size:20px;");
+//	_('title'+id).parentNode.appendChild(tinput);
+	_('title'+id).parentNode.innerHTML+=`<input id="editt${id}"  type="text" \>`;
+_('editt'+id).value=_('title'+id).textContent;
+_('editt'+id).setAttribute("style","border: none;border-bottom: 2px solid;background-color: #040a2b;color:#ffffff;width: 95%;font-size:20px;");
+
 //style
 uline('message'+id);
 displays('check'+id,'title'+id,'edit'+id);
@@ -120,8 +124,8 @@ button('update'+id);
 //    +---------------------------+
 
 	function updateList(id){
-	_('title'+id).textContent=_('etitle'+id).value;
-	_('etitle'+id).remove();
+	_('title'+id).textContent=_('editt'+id).value;
+	_('editt'+id).remove();
 	displays('title'+id,'message'+id,'check'+id,'edit'+id,'update'+id);
 
 };
