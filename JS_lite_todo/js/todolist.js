@@ -145,7 +145,7 @@ button('update'+id);
 //    |[update](none)[edit](inline)[Del]|
 //    +---------------------------------+
 	function changeStatus(id) {
-         (_('check'+id).checked==true)?check_line('title'+id,"line-through",'message'+id,'edit'+id):check_line('title'+id,"none",'edit'+id,'message'+id);
+         (_('check'+id).checked==true)?check_line("line-through"):check_line("none");
 
 };
 
@@ -211,9 +211,9 @@ _(b).setAttribute("style","border: none;border-bottom: 2px solid;background-colo
 };
 
 
-function check_line(a,b,c,d){
-_(a).style.textDecorationLine =b ;
-displays(c,d);
+function check_line(a){
+_('title'+id).style.textDecorationLine =a;
+displays('message'+id,'edit'+id);
 
 
 
